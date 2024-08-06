@@ -20,7 +20,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
 from django.views.debug import default_urlconf
+from django.conf.urls import handler404
+from django.conf.urls import handler500
+from keg4re.views import view_404, view_500
 
+# handler404 = view_404
+# handler500 = view_500
 
 urlpatterns = [
     path('admin/', admin.site.urls),

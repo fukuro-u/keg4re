@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from datetime import datetime
 from django.http import HttpResponse
+from django.views.generic import ListView
 # from django.core.management import call_command
 from .models import Post
 from .forms import PostForm
@@ -25,7 +26,10 @@ def run_migrations_view(request):
 
 def post_list(request):
     posts = Post.objects.all()
-    return render(request, 'post_list.html', {'posts': posts})
+    context = {
+        'posts': posts
+    }
+    return render(request, 'post_list.html',context)
 
 def post_create(request):
     if request.method == 'POST':
@@ -36,3 +40,7 @@ def post_create(request):
     else:
         form = PostForm()
     return render(request, 'post_form.html', {'form': form})
+
+class ListPost(ListView):
+    model = Post
+    template_name = 'post_list_test.html'
