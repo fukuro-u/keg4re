@@ -24,9 +24,8 @@ from django.views.debug import default_urlconf
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('time/', include('shiranui.urls')),
+    path('blog/', include('shiranui.urls')),
     path('', default_urlconf)
-
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
