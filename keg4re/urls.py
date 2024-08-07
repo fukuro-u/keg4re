@@ -30,6 +30,7 @@ from keg4re.views import view_404, view_500
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('shiranui.urls')),
+    path('store/', include('store.urls')),
     path('', default_urlconf)
 ]
 if settings.DEBUG:

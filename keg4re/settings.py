@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l2s@*jas$@%*m4)^s5n)mk^^u1*$gs#!9&2ba+!+gx5bug2hq3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'keg4re',
-    'shiranui'
+    'shiranui',
+    'store'
 ]
 
 MIDDLEWARE = [
