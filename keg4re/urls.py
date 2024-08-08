@@ -23,6 +23,7 @@ from django.views.debug import default_urlconf
 from django.conf.urls import handler404
 from django.conf.urls import handler500
 from keg4re.views import view_404, view_500
+from store.views import image_selector
 
 # handler404 = view_404
 # handler500 = view_500
@@ -31,7 +32,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('shiranui.urls')),
     path('store/', include('store.urls')),
+    path('admin/image-selector/', image_selector, name='admin_image_selector'),
     path('', default_urlconf)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

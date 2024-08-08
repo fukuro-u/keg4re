@@ -1,0 +1,23 @@
+<!-- templates/image_selector.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select an Image</title>
+</head>
+<body>
+    <h1>Select an Image</h1>
+    <form method="post" action="{% url 'select_image' %}">
+        {% csrf_token %}
+        <ul>
+            {% for image in images %}
+                <li>
+                    <img src="{{ image }}" alt="Image" style="width: 100px; height: auto;">
+                    <input type="radio" name="selected_image" value="{{ image }}" id="{{ image }}">
+                    <label for="{{ image }}">{{ image }}</label>
+                </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Select Image">
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!-- templates/admin/widgets/image_select.html -->
+<select name="{{ widget.name }}" id="{{ widget.attrs.id }}">
+    <option value="">---------</option>
+    {% for value, label in widget.choices %}
+        <option value="{{ value }}" {% if value == widget.value %}selected{% endif %}>
+            <img src="{{ value }}" style="width: 100px; height: auto;"> {{ label }}
+        </option>
+    {% endfor %}
+</select>

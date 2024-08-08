@@ -24,5 +24,5 @@ from django.urls import path
 from store.views import time
 
 urlpatterns = [
-    path('time/', time)
+    path('time/', time),
 ]
